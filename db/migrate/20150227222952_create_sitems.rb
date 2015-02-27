@@ -2,7 +2,7 @@ class CreateSitems < ActiveRecord::Migration
   def change
     create_table :sitems do |t|
       t.string :name
-      t.reference :service
+      t.references :service
 
       t.timestamps
     end
