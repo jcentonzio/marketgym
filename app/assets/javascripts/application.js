@@ -16,3 +16,10 @@
 //= require_tree .
 //= require bootstrap-sprockets
 //= require bootstrap-multiselect
+
+
+ $(document).ready(function() {
+        $('#example-enableClickableOptGroups').multiselect({
+            enableClickableOptGroups: true
+        });
+    });
