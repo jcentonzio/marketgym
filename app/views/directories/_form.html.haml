@@ -5,6 +5,29 @@
       %ul
         - @directory.errors.full_messages.each do |msg|
           %li= msg
+  
+  .form-group
+    %p
+    = f.label :name
+    = f.text_field :name, :class => 'form-control'
+    %p
+  .form-group
+    %p
+    = f.label :address
+    = f.text_field :address, :class => 'form-control'
+    %p
+  .form-group
+    %p
+    = f.label :phone
+    = f.text_field :phone, :class => 'form-control'
+    %p
+  .form-group
+    %p
+    = f.label :descripcion
+    = f.text_area :descripcion, :class => 'form-control'
+    %p   
 
-  .actions
-    = f.submit 'Save'
+
+    = f.submit 'Crear', :class => 'btn btn-default'  
+
+    
