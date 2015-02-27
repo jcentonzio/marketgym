@@ -1,0 +1,17 @@
+%h1 Listing directories
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @directories.each do |directory|
+    %tr
+      %td= link_to 'Show', directory
+      %td= link_to 'Edit', edit_directory_path(directory)
+      %td= link_to 'Destroy', directory, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Directory', new_directory_path
