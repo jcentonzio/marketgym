@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gym</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="top-nav" class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-toggle"></span>
+      </button>
+      <a class="navbar-brand" href="#">OKCita</a>
+
+<ul class="nav navbar-nav">
+        <li><a href="#"> <span class="glyphicon glyphicon-calendar"></span> Plamming</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-th-list"></span> Clientes</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-certificate"></span> Promociones</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-star"></span> Marketing</a></li>
+        <li>&nbsp;</li>
+      </ul>
+    </div>
+    <div class="navbar-collapse collapse">
+      
+      <ul class="nav navbar-nav navbar-right">     
+        <li class="dropdown">
+          <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> Configuración<span class="caret"></span></a>
+          <ul id="g-account-menu" class="dropdown-menu" role="menu">
+            <li><a href="#"><span class="glyphicon glyphicon-home"></span> Tu cuenta</a></li>
+            <li><a href="/negocio"><span class="glyphicon glyphicon-pencil"></span> Datos del negocio</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Notificaciones</a></li>
+            <li><a href="/servicios"><span class="glyphicon glyphicon-lock"></span> Servicios</a></li>
+            <li><a href="http://localhost:3000/uploads/new"><span class="glyphicon glyphicon-camera"></span> Fotos</a></li>
+            <li><a href="/profesionales"><span class="glyphicon glyphicon-list-alt"></span> Profesionales</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-th-list"></span> Datos de facturación</a></li>
+            <hr>
+            <li><a href="#"> <span class="glyphicon glyphicon-info-sign"></span> Ayuda</a></li>
+            <li></li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+  </div><!-- /container -->
+</div>
+
+
+
+<div class="container">
+   <%= yield %>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
