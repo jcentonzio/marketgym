@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227222952) do
+ActiveRecord::Schema.define(version: 20150227231625) do
 
   create_table "directories", force: true do |t|
     t.string   "name"
@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(version: 20150227222952) do
   end
 
   add_index "directories", ["user_id"], name: "index_directories_on_user_id", using: :btree
+
+  create_table "directories_sitems", id: false, force: true do |t|
+    t.integer "sitem_id",     null: false
+    t.integer "directory_id", null: false
+  end
 
   create_table "services", force: true do |t|
     t.string   "name"

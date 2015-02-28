@@ -1,4 +1,4 @@
-= form_for @directory do |f|
+= nested_form_for @directory do |f|
   - if @directory.errors.any?
     #error_explanation
       %h2= "#{pluralize(@directory.errors.count, "error")} prohibited this directory from being saved:"
@@ -28,13 +28,8 @@
     %p
 
   .form-group
-    %p 
-      %select#example-enableClickableOptGroups{:multiple => "multiple", :name => "directory[service_id]", :style => "display: none;"}
-        - Service.all.each do |service|
-          %optgroup{:label => "#{service.name}"}
-            - service.sitems.each do |sitem|
-              %option{:value => "#{service.id}-#{sitem.id}"} 
-                = sitem.name      
+    %p
+      = f.grouped_collection_select :sitem_ids, @services, :sitems, :name, :id, :name, {}, {:class => "multiselect", :multiple => "multiple", :id => "example-enableClickableOptGroups" }
 
-
+     
     = f.submit 'Crear', :class => 'btn btn-default'  

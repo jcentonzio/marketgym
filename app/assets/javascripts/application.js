@@ -16,6 +16,7 @@
 //= require_tree .
 //= require bootstrap-sprockets
 //= require bootstrap-multiselect
+//= require jquery_nested_form
 
 
  $(document).ready(function() {
