@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150227231625) do
+ActiveRecord::Schema.define(version: 20150228005620) do
+
+  create_table "cities", force: true do |t|
+    t.string   "name"
+    t.integer  "zone_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cities", ["zone_id"], name: "index_cities_on_zone_id", using: :btree
 
   create_table "directories", force: true do |t|
     t.string   "name"
@@ -41,6 +50,12 @@ ActiveRecord::Schema.define(version: 20150227231625) do
   create_table "sitems", force: true do |t|
     t.string   "name"
     t.integer  "service_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "zones", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
