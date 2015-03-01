@@ -1,0 +1,11 @@
+es:
+  activerecord:
+    models:
+      directory:
+    attributes:
+      directory:
+        name: "Nombre del gimnasio"
+        address: "Dirección"
+        city_id: "Seleccione ciudad o comuna"
+        phone: "Teléfono"
+        servicios: "Seleccione los servicios que ofrece el gimnasio"

@@ -16,10 +16,23 @@
 //= require_tree .
 //= require bootstrap-sprockets
 //= require bootstrap-multiselect
+//= require jquery_nested_form
 
 
  $(document).ready(function() {
         $('#example-enableClickableOptGroups').multiselect({
-            enableClickableOptGroups: true
+            nonSelectedText: 'Por favor, seleccione servicios',
+            enableClickableOptGroups: true,
+            buttonWidth: '100%'
         });
     });
+
+$(document).ready(function() {
+        $('#city').multiselect({
+            nonSelectedText: 'Por favor, seleccione una opción',
+        	buttonWidth: '100%',
+            enableClickableOptGroups: true,
+            enableCaseInsensitiveFiltering: true,
+            filterPlaceholder: 'Buscar ciudad o comuna...'
+        });
+    }); 

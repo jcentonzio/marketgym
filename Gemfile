@@ -18,6 +18,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'bootstrap-multiselect-rails'
 
+gem 'nested_form'
+
 gem 'mysql2'
 
 gem 'haml'
