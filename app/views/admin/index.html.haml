@@ -1,23 +1,30 @@
 .row
   .col-md-6
-    %h2 Gimnasios
+    .row
+      .col-md-6
+        %h3 Gimnasios
+      .col-md-6.text-right
+        = link_to "<span class='glyphicon glyphicon-plus'></span> Agregar Gimnasio ".html_safe, new_directory_path
     %table.table.table-striped
       %th Nombre
       %th Télefono
       %th Estado
       %th Opciones
-      %tr
-        %td Power gym
-        %td 022319006
-        %td Activo
-        %td Editar - Eliminar
-      %tr
-        %td Pacifig
-        %td 022319006
-        %td Activo
-        %td Editar - Eliminar  
+      - @directories.each do |directory|
+        %tr
+          %td 
+            = directory.name
+          %td
+            = directory.phone
+          %td
+            Activo
+          %td
+            = link_to "Add oferta", admin_index_path, class: 'btn btn-info btn-sm'
+            = link_to 'Editar', edit_directory_path(directory), class: 'btn btn-primary btn-sm'
+            = link_to 'Borrar', directory, method: :delete, data: { confirm: 'Esta usted seguro?' }, class: 'btn btn-danger btn-sm'
+               
   .col-md-6
-    %h2 Ventas
+    %h3 Ventas
     %table.table.table-striped
       %th Orden
       %th Nombre

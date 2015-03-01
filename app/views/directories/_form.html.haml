@@ -13,23 +13,30 @@
     %p
   .form-group
     %p
-    = f.label :address
-    = f.text_field :address, :class => 'form-control'
-    %p
-  .form-group
-    %p
     = f.label :phone
     = f.text_field :phone, :class => 'form-control'
     %p
+      
   .form-group
     %p
-    = f.label :descripcion
-    = f.text_area :descripcion, :class => 'form-control'
+    = f.label :address
+    = f.text_field :address, :class => 'form-control'
     %p
-
+  
   .form-group
     %p
+      = f.label :city_id
+    %p  
+      = f.grouped_collection_select :city_id, @zones, :cities, :name, :id, :name, {}, {:class => "multiselect", :id => "city" }
+    %p  
+  
+  .form-group
+    %p
+      = f.label :servicios
+    %p   
       = f.grouped_collection_select :sitem_ids, @services, :sitems, :name, :id, :name, {}, {:class => "multiselect", :multiple => "multiple", :id => "example-enableClickableOptGroups" }
 
      
-    = f.submit 'Crear', :class => 'btn btn-default'  
+    = f.submit 'Crear gym', :class => 'btn btn-primary'
+    = link_to "Volver", admin_index_path, class: 'btn btn-primary'
+  .col-md-6  

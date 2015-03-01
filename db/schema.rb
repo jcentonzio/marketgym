@@ -27,9 +27,8 @@ ActiveRecord::Schema.define(version: 20150228005620) do
     t.string   "phone"
     t.string   "address"
     t.integer  "city_id"
-    t.integer  "commune_id"
-    t.text     "descripcion"
     t.integer  "user_id"
+    t.boolean  "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

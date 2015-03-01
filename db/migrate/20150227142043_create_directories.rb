@@ -5,10 +5,8 @@ class CreateDirectories < ActiveRecord::Migration
       t.string :phone
       t.string :address
       t.references :city
-      t.references :commune
-      t.text :descripcion
       t.references :user, index: true
-
+      t.boolean :state 
       t.timestamps
     end
   end
