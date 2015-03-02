@@ -6,5 +6,18 @@
         - @access.errors.full_messages.each do |msg|
           %li= msg
 
+  .form-group
+    %p
+    = f.label :name
+    = f.text_field :name, :class => 'form-control'
+    %p
+    
+
+  .form-group
+    %p
+    = f.label :price
+    = f.text_field :price, :class => 'form-control'
+    %p  
+
   .actions
     = f.submit 'Save'

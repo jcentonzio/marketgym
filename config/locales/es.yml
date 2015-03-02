@@ -2,6 +2,7 @@ es:
   activerecord:
     models:
       directory:
+      access:
     attributes:
       directory:
         name: "Nombre del gimnasio"
@@ -9,3 +10,8 @@ es:
         city_id: "Seleccione ciudad o comuna"
         phone: "Teléfono"
         servicios: "Seleccione los servicios que ofrece el gimnasio"
+        terms: "Condicion de la oferta"
+        description: "Descripción de la oferta"
+      access:
+        type_access_id: "Tipo de acceso"  
+        price: "Precio"  

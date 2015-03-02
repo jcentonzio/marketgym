@@ -6,37 +6,88 @@
         - @directory.errors.full_messages.each do |msg|
           %li= msg
   
-  .form-group
-    %p
-    = f.label :name
-    = f.text_field :name, :class => 'form-control'
-    %p
-  .form-group
-    %p
-    = f.label :phone
-    = f.text_field :phone, :class => 'form-control'
-    %p
+  .panel.panel-default
+    .panel-body
+      %h4 Información general 
+      %hr
+      .form-group
+        %p
+        = f.label :name
+        = f.text_field :name, :class => 'form-control'
+        %p
+      .form-group
+        %p
+        = f.label :phone
+        = f.text_field :phone, :class => 'form-control'
+        %p
       
-  .form-group
-    %p
-    = f.label :address
-    = f.text_field :address, :class => 'form-control'
-    %p
+      .form-group
+        %p
+        = f.label :address
+        = f.text_field :address, :class => 'form-control'
+        %p
   
-  .form-group
-    %p
-      = f.label :city_id
-    %p  
-      = f.grouped_collection_select :city_id, @zones, :cities, :name, :id, :name, {}, {:class => "multiselect", :id => "city" }
-    %p  
-  
-  .form-group
-    %p
-      = f.label :servicios
-    %p   
-      = f.grouped_collection_select :sitem_ids, @services, :sitems, :name, :id, :name, {}, {:class => "multiselect", :multiple => "multiple", :id => "example-enableClickableOptGroups" }
+      .form-group
+        %p
+        = f.label :city_id
+        %p  
+        = f.grouped_collection_select :city_id, @zones, :cities, :name, :id, :name, {}, {:class => "multiselect", :id => "city" }
+        %p
 
-     
+
+  .panel.panel-default
+    .panel-body
+      %h4 Servicios 
+      %hr  
+      .form-group
+        %p
+        = f.label :servicios
+        %p   
+        = f.grouped_collection_select :sitem_ids, @services, :sitems, :name, :id, :name, {}, {:class => "multiselect", :multiple => "multiple", :id => "example-enableClickableOptGroups" }
+
+  
+  .form-group
+    %p
+    = f.label :terms
+    = f.text_area :terms, :class => 'form-control'
+    %p
+
+  .form-group
+    %p
+    = f.label :description
+    = f.text_area :description, :class => 'form-control'
+    %p   
+
+ 
+  .panel.panel-default
+    .panel-body
+      %h4 Agregar accesos 
+      %hr
+      .form-group
+        = f.fields_for :accesses do |access_form|
+          .row
+            .col-xs-6.col-md-4
+              = access_form.label :type_access_id
+              = access_form.select :type_access_id, TypeAccess.all.map{ |c| [c.name, c.id] }, { :prompt => "Por favor, seleccionar una opción"}, :class => 'form-control' 
+            .col-xs-6.col-md-4
+              = access_form.label :price
+
+              .input-group
+                .input-group-addon $
+                = access_form.text_field :price, :class => 'form-control'
+                        
+            .col-xs-6.col-md-4
+              = access_form.link_to_remove "Eliminar"
+      .form-group
+        = f.link_to_add "Agregar acceso", :accesses         
+  
+          
+  
+  
+
+      
+  .form-group   
     = f.submit 'Crear gym', :class => 'btn btn-primary'
     = link_to "Volver", admin_index_path, class: 'btn btn-primary'
+  
   .col-md-6  

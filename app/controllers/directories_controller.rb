@@ -14,8 +14,9 @@ class DirectoriesController < ApplicationController
   end
 
   # GET /directories/new
-  def new
+  def new 
     @directory = Directory.new
+    3.times { @directory.accesses.build }
     @services = Service.all
     @zones = Zone.all
   end
@@ -74,6 +75,6 @@ class DirectoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def directory_params
-      params.require(:directory).permit(:name, :address, :city_id, :phone, :sitem_ids => [])
+      params.require(:directory).permit(:name, :address, :city_id, :phone, :accesses_attributes => [:id, :type_access_id, :price], :sitem_ids => [])
     end
 end

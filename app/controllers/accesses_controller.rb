@@ -1,5 +1,7 @@
 class AccessesController < ApplicationController
   before_action :set_access, only: [:show, :edit, :update, :destroy]
+  before_action :set_directory, only: [:new, :show, :edit, :update, :destroy]
+  layout 'admin'
 
   # GET /accesses
   # GET /accesses.json
@@ -25,7 +27,7 @@ class AccessesController < ApplicationController
   # POST /accesses.json
   def create
     @access = Access.new(access_params)
-
+    @access.directory_id = set_directory
     respond_to do |format|
       if @access.save
         format.html { redirect_to @access, notice: 'Access was successfully created.' }
@@ -67,8 +69,12 @@ class AccessesController < ApplicationController
       @access = Access.find(params[:id])
     end
 
+    def set_directory
+      @directory = Directory.find(params[:id])
+    end  
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def access_params
-      params[:access]
+      params.require(:access).permit(:name, :price, :type_access_id, :directory_id, customer_id: @directory)
     end
 end
