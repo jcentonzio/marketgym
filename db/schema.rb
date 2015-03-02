@@ -11,8 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20150302141901) do
 
-ActiveRecord::Schema.define(version: 20150228005620) do
+  create_table "accesses", force: true do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.integer  "type_access_id"
+    t.integer  "directory_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "accesses", ["directory_id"], name: "index_accesses_on_directory_id", using: :btree
+  add_index "accesses", ["type_access_id"], name: "index_accesses_on_type_access_id", using: :btree
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -50,6 +61,12 @@ ActiveRecord::Schema.define(version: 20150228005620) do
   create_table "sitems", force: true do |t|
     t.string   "name"
     t.integer  "service_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "type_accesses", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
