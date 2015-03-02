@@ -1,2 +1,40 @@
-%h1 Home#show
-%p Find me in app/views/home/show.html.haml
+%h1 
+  = @directory.name
+
+.row
+  .col-xs-12.col-md-8.align.text-center
+    = image_tag "pgym.jpg"
+  .col-xs-6.col-md-4
+              
+    %ul.list-group
+      - @directory.accesses.each do |access|
+        %li.list-group-item  
+          .row
+            .col-md-6
+              = access.type_access.name  
+            .col-md-6
+              = access.price     
+
+.row
+  .col-md-6 Condiciones
+  .col-md-6 Descripción
+
+   
+.row
+  .col-xs-12.col-md-8
+    .list-group
+      %a.list-group-item.disabled{:href => "#"}
+        Servicios
+      - @directory.sitems.each do |sitem|  
+        %a.list-group-item{:href => "#"} 
+          = sitem.name
+
+  .col-xs-6.col-md-4 otros     
+  
+
+
+  
+
+
+
+ 
