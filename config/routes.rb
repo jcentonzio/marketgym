@@ -19,7 +19,9 @@ Rails.application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-
+   
+   get 'purchase/checkout/:id' => 'carts#show', as: :purchase
+   
    get 'accesses/new/:id' => 'accesses#new'
    get 'show/:id' => 'home#show'
 

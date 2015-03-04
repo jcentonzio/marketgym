@@ -11,7 +11,7 @@
         %li.list-group-item  
           .row
             .col-md-6
-              = access.type_access.name  
+              = link_to access.type_access.name, purchase_path(access)  
             .col-md-6
               = access.price     
 
