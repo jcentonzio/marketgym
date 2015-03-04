@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302155930) do
+ActiveRecord::Schema.define(version: 20150304030351) do
 
   create_table "accesses", force: true do |t|
     t.string   "name"
@@ -54,6 +54,32 @@ ActiveRecord::Schema.define(version: 20150302155930) do
     t.integer "directory_id", null: false
   end
 
+  create_table "order_items", force: true do |t|
+    t.integer  "access_id"
+    t.integer  "order_id"
+    t.integer  "total_price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "order_items", ["access_id"], name: "index_order_items_on_access_id", using: :btree
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
+
+  create_table "order_statuses", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", force: true do |t|
+    t.integer  "total"
+    t.integer  "order_status_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
+
   create_table "services", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -72,6 +98,24 @@ ActiveRecord::Schema.define(version: 20150302155930) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "zones", force: true do |t|
     t.string   "name"
