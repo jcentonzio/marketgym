@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :accesses
   resources :admin
   resources :directories
+  resources :orders
 
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
 

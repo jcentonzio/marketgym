@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304030351) do
+ActiveRecord::Schema.define(version: 20150304040501) do
 
   create_table "accesses", force: true do |t|
     t.string   "name"
@@ -54,31 +54,14 @@ ActiveRecord::Schema.define(version: 20150304030351) do
     t.integer "directory_id", null: false
   end
 
-  create_table "order_items", force: true do |t|
-    t.integer  "access_id"
-    t.integer  "order_id"
-    t.integer  "total_price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "order_items", ["access_id"], name: "index_order_items_on_access_id", using: :btree
-  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
-
-  create_table "order_statuses", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "orders", force: true do |t|
-    t.integer  "total"
-    t.integer  "order_status_id"
+    t.integer  "amount"
+    t.integer  "access_id_id"
+    t.integer  "type_state_id_id"
+    t.integer  "user_id_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
 
   create_table "services", force: true do |t|
     t.string   "name"
@@ -94,6 +77,12 @@ ActiveRecord::Schema.define(version: 20150304030351) do
   end
 
   create_table "type_accesses", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "type_states", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
