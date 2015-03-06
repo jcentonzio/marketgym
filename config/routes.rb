@@ -24,10 +24,17 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
    
-   get 'purchase/checkout/:id' => 'carts#show', as: :purchase
+  get 'show/:id' => 'home#show'  
+
+
+  
+  get 'purchase/checkout/cart' => 'carts#cart', as: :cart
+  get 'purchase/checkout/:id' => 'carts#show', as: :purchase
+   #match "purchase/checkout/:id" => "carts#show", :as => :purchase, :via => [:get], :constraints => { :name => /[A-Za-z]/ }
    
    get 'accesses/new/:id' => 'accesses#new'
-   get 'show/:id' => 'home#show'
+
+   
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

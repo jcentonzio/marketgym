@@ -1,30 +1,73 @@
-= @access.directory.name
-= @access.type_access.name
-= @access.price
+%h2 Esta es tu elección
+.well
+  .row
+    .col-md-6
+      .row
+        .col-md-6
+          = image_tag "pcart.jpg" 
+        .col-md-6.text-center
+          %h4
+            = @access.directory.name
+
+    .col-md-6
+      .row
+        .col-md-6
+          %h4
+            = @access.type_access.name
+        .col-md-6.text-right
+          %h4
+            = clp(@access.price)
+      %hr      
+      .row
+        .col-md-8
+          %h4 Total a pagar (Iva incluido) 
+        .col-md-4.text-right
+          %h4
+            = clp(@access.price)   
+      .row
+        .col-md-12.text-center
+          %br
+          %h6 Todas las ofertas incluyen matricula gratuita y acceso en horario libre todos los días de la semana. Tendrás 90 días para usar tu localizador     
+
+      
+.well
+  .row
+    .col-md-12 
+      %h3 Recuerda, para poder comprar debes registrarte o acceder a tu cuenta
+      %hr
+  .row
+    .col-md-6.line
+      %h4 Crea tu cuenta
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = devise_error_messages!
+        .form-group
+          = f.label :email, "Email" 
+          %br
+          = f.email_field :email, autofocus: true, :class => 'form-control' 
+        .form-group  
+          = f.label :password, "Contraseña"
+          %br
+          = f.password_field :password, autocomplete: "off", :class => 'form-control' 
+        .form-group  
+          = f.label :password_confirmation, "Confirmar contraseña"
+          %br
+          = f.password_field :password_confirmation, autocomplete: "off", :class => 'form-control'
+          
+        = f.submit "REGISTRARME", class: "btn btn-extra btn-block"
 
 
-.row
-  .col-md-6
-    .panel.panel-default
-      .panel-body
-        = form_tag session_path(:user) do 
-          = text_field_tag 'user[email]'
-          = password_field_tag 'user[password]'
-          = check_box_tag 'user[remember_me]'
-          = label_tag 'user[remember_me]', 'Remember me'
-          %button Sign in
-          = link_to "Forgot your password?", new_password_path(:user) 
-  .col-md-6
-    .panel.panel-default
-      .panel-body 
-        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-          = devise_error_messages!
-          = f.label :email 
-          = f.email_field :email, autofocus: true 
-          = f.label :password 
-          = f.password_field :password, autocomplete: "off" 
-          = f.label :password_confirmation
-          = f.password_field :password_confirmation, autocomplete: "off"
-          = f.submit "Sign up" 
+    .col-md-6
+      %h4 Accede a tu cuenta
 
+      = form_tag session_path(:user) do
+        .form-group
+          = label :email, "Email" 
+          %br
+          = text_field_tag 'user[email]', nil, class: 'form-control'
+        .form-group
+          = label :email, "Contraseña" 
+          %br  
+          = password_field_tag 'user[password]', nil, class: 'form-control'
 
+        %button.btn.btn-extra.btn-block ENTRAR
+        

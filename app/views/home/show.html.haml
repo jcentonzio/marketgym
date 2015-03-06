@@ -1,35 +1,93 @@
 %h1 
   = @directory.name
 
-.row
-  .col-xs-12.col-md-8.align.text-center
-    = image_tag "pgym.jpg"
-  .col-xs-6.col-md-4
-              
-    %ul.list-group
-      - @directory.accesses.each do |access|
-        %li.list-group-item  
-          .row
-            .col-md-6
-              = link_to access.type_access.name, purchase_path(access)  
-            .col-md-6
-              = access.price     
+.well
+  .row
+    .col-md-8
+      = image_tag "pgym.jpg"
+    .col-md-4.text-center
+      = form_tag(cart_url, :method => "get") do
+        .btn-group-vertical.btn-block{"data-toggle" => "buttons"}
+          - @directory.accesses.each do |access|
+            %label.btn.btn-primary
+              %input#option1{:autocomplete => "off", :name => "id", :value => access.id,  :type => "radio"}                
+                .row
+                  .col-md-8.text-left 
+                    %h4
+                      = access.type_access.name
+                  .col-md-4.text-left 
+                    %h4
+                      = clp(access.price)
+                  
+        = submit_tag 'COMPRAR', class: "btn btn-extra btn-lg btn-block"        
+
 
 .row
-  .col-md-6 Condiciones
-  .col-md-6 Descripción
+  .col-md-8
+    .well 
+      .row
+        .col-md-6
+          %span.section-title Descripción 
+          = @directory.description.html_safe  
+        .col-md-6
+          %span.section-title Condiciones
+          = @directory.terms
+      .row
+        .col-md-12
+          %span.section-title Servicios del gimnasio
+          .list-group
+            %a.list-group-item.disabled{:href => "#"}
+              Fitness & Gym
+              - @fits.each do |sitem|  
+                %a.list-group-item{:href => "#"}
+                  %span.badge
+                    %span.glyphicon.glyphicon-ok
+                  = sitem.name
+          .list-group
+            %a.list-group-item.disabled{:href => "#"}
+              Wellness & Spa
+              - @Wells.each do |sitem|  
+                %a.list-group-item{:href => "#"}
+                  %span.badge
+                    %span.glyphicon.glyphicon-ok
+                  = sitem.name                  
+          .list-group
+            %a.list-group-item.disabled{:href => "#"}
+              Actividades dirigidas
+              - @actis.each do |sitem|  
+                %a.list-group-item{:href => "#"}
+                  %span.badge
+                    %span.glyphicon.glyphicon-ok
+                  = sitem.name
+          .list-group
+            %a.list-group-item.disabled{:href => "#"}
+              Masajes & Belleza
+              - @spas.each do |sitem|  
+                %a.list-group-item{:href => "#"}
+                  %span.badge
+                    %span.glyphicon.glyphicon-ok
+                  = sitem.name
+          .list-group
+            %a.list-group-item.disabled{:href => "#"}
+              Servicios
+              - @servs.each do |sitem|  
+                %a.list-group-item{:href => "#"}
+                  %span.badge
+                    %span.glyphicon.glyphicon-ok
+                  = sitem.name                                 
 
-   
-.row
-  .col-xs-12.col-md-8
-    .list-group
-      %a.list-group-item.disabled{:href => "#"}
-        Servicios
-      - @directory.sitems.each do |sitem|  
-        %a.list-group-item{:href => "#"} 
-          = sitem.name
+         
+  .col-md-4
+    .well
+      %span.section-title Mapa
+      %span.section-title Otros gimnasios
 
-  .col-xs-6.col-md-4 otros 
+      
+
+
+
+
+
 
 
   
