@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :customers
+  
   get 'carts/show'
 
   get 'admin/index'
@@ -14,10 +14,11 @@ Rails.application.routes.draw do
   resources :directories
   resources :orders
 
-  #devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
+  #devise_for :customers, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   
-  devise_for :users, controllers: { registrations: "registrations"}
+  devise_for :customers, controllers: { registrations: "registrations_customers"}
 
+  devise_for :users, controllers: { registrations: "registrations"}
 
 
   # The priority is based upon order of creation: first created -> highest priority.
