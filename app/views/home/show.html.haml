@@ -82,7 +82,28 @@
       %span.section-title Mapa
       %span.section-title Otros gimnasios
 
-      
+- if @access 
+  #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+          %h4#myModalLabel.modal-title Forma de pago
+        .modal-body
+          %h4
+            %strong 
+              = @access.directory.name
+          %h5 
+            %p 
+              %strong Tipo de pase: 
+              = @access.type_access.name
+            %p
+              %strong Total a pagar: 
+              = clp(@access.price)
+          %br  
+          = image_tag ("transbank.jpg")
+        .modal-footer
+          %button.btn.btn-extra.btn-lg{:type => "button"} REALIZAR PAGO  
 
 
 

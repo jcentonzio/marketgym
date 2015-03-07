@@ -19,6 +19,11 @@
 //= require jquery_nested_form
 
 
+$(function() {
+   $("#myModal").modal();
+});
+
+
  $(document).ready(function() {
         $('#example-enableClickableOptGroups').multiselect({
             nonSelectedText: 'Por favor, seleccione servicios',

@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   resources :directories
   resources :orders
 
-  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
+  #devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
+  
+  devise_for :users, controllers: { registrations: "registrations"}
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -24,12 +28,12 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
    
-  get 'show/:id' => 'home#show'  
-
+  get 'show/:id(/purchase/:access_id)' => 'home#show', as: :product  
 
   
   get 'purchase/checkout/cart' => 'carts#cart', as: :cart
   get 'purchase/checkout/:id' => 'carts#show', as: :purchase
+  get 'purchase/checkout/payment/:id' => 'carts#payment', as: :payment
    #match "purchase/checkout/:id" => "carts#show", :as => :purchase, :via => [:get], :constraints => { :name => /[A-Za-z]/ }
    
    get 'accesses/new/:id' => 'accesses#new'

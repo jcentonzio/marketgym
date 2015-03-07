@@ -1,0 +1,46 @@
+%h2 Esta es tu elección
+.well
+  .row
+    .col-md-6
+      .row
+        .col-md-6
+          = image_tag "pcart.jpg" 
+        .col-md-6.text-center
+          %h4
+            = @access.directory.name
+
+    .col-md-6
+      .row
+        .col-md-6
+          %h4
+            = @access.type_access.name
+        .col-md-6.text-right
+          %h4
+            = clp(@access.price)
+      %hr      
+      .row
+        .col-md-8
+          %h4 Total a pagar (Iva incluido) 
+        .col-md-4.text-right
+          %h4
+            = clp(@access.price)   
+      .row
+        .col-md-12.text-center
+          %br
+          %h6 Todas las ofertas incluyen matricula gratuita y acceso en horario libre todos los días de la semana. Tendrás 90 días para usar tu localizador     
+
+      
+#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+        %h4#myModalLabel.modal-title 
+          = @access.type_access.name
+          %br
+          Total: 
+          = clp(@access.price)
+      .modal-body
+        = image_tag ("transbank.jpg")
+      .modal-footer
+        %button.btn.btn-primary{:type => "button"} PAGAR  
