@@ -1,0 +1,7 @@
+- if customer_signed_in?
+  = current_customer.email
+  = current_customer.created_at.strftime("%d-%m")
+  = link_to 'Sign out', destroy_customer_session_path, method: 'delete'
+- else
+  = link_to 'Sign up', new_customer_registration_path 
+  = link_to 'Sign in', new_customer_session_path

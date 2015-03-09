@@ -16,9 +16,10 @@ Rails.application.routes.draw do
 
   #devise_for :customers, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   
-  devise_for :customers, controllers: { registrations: "registrations_customers"}
+  #devise_for :customers, controllers: { registrations: "registrations"}
 
-  devise_for :users, controllers: { registrations: "registrations"}
+  devise_for :customers, controllers: {registrations: "customer/registrations"}
+  devise_for :users,  controllers: { registrations: "registrations"}
 
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -30,6 +31,8 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
    
+  get 'dashboard' => 'merchant#index', as: :merchant
+
   get 'show/:id(/purchase/:access_id)' => 'home#show', as: :product  
 
   

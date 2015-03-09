@@ -27,6 +27,8 @@ gem 'mysql2'
 gem 'haml'
 gem 'haml-rails'
 
+gem 'font-awesome-sass', '~> 4.2.0'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
