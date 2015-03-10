@@ -1,4 +1,6 @@
 class DirectoriesController < ApplicationController
+  before_action :authenticate_customer!
+  before_action :authenticate_user!
   before_action :set_directory, only: [:show, :edit, :update, :destroy]
   layout 'admin'
 

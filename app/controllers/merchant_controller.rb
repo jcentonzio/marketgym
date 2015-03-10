@@ -3,5 +3,12 @@ class MerchantController < ApplicationController
 
 	def index
 
+	end
+
+	def company
+     @directory = Directory.new
+     3.times { @directory.accesses.build }
+    @services = Service.all
+    @zones = Zone.all
 	end	
 end

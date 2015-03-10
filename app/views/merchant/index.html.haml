@@ -1,74 +1,113 @@
-%h2 Gimnasio Pacific Amunategui
-%hr
+%strong
+  %h4
+    %i.fa.fa-tachometer
+    Panel de administración
+%hr  
 .row
   .col-md-6
     .panel.panel-default
       .panel-body
         %strong
-          %i.glyphicon.glyphicon-list-alt
-          Ultimos 5 pedidos
+          %i.fa.fa-th-list
+          Ultimos 5 pases 
           %hr/  
         .row  
           .panel-body
             %table.table.table-striped
               %th Cliente
-              %th Acceso
+              %th Tipo de acceso
+              %th Estado
               %th Total
               %tr
                 %td Jorge Centonzio
                 %td 1 día
+                %td Confimado
                 %td $12.000
               %tr
                 %td Jorge Centonzio
                 %td 1 día
+                %td No confirmado
                 %td $12.000
               %tr
                 %td Jorge Centonzio
                 %td 1 día
+                %td No confirmado
                 %td $12.000
               %tr
                 %td Jorge Centonzio
                 %td 1 día
+                %td Confirmado
                 %td $12.000
               %tr
                 %td Jorge Centonzio
                 %td 1 día
+                %td Confirmado
                 %td $12.000
 
     .panel.panel-default
       .panel-body
         %strong
           %i.glyphicon.glyphicon-list-alt
-          Ultimos 5 accesos confirmados
-          %hr/                                                                                 
-               
+          Pases sin confirmar
+          %hr/
+        %table.table.table-striped
+          %th Cliente
+          %th Acceso
+          %th Estado
+          %th Total
+          %tr
+            %td Jorge Centonzio
+            %td 1 día
+            %td Pagado
+            %td $12.000
+          %tr
+            %td Jorge Centonzio
+            %td 1 día
+            %td Pendiente
+            %td $12.000
+          %tr
+            %td Jorge Centonzio
+            %td 1 día
+            %td Pagado
+            %td $12.000
+          %tr
+            %td Jorge Centonzio
+            %td 1 día
+            %td Pagado
+            %td $12.000
+          %tr
+            %td Jorge Centonzio
+            %td 1 día
+            %td Pagado
+            %td $12.000          
+                                                                                                         
   .col-md-6
     .panel.panel-default
       .panel-body
         %strong
-          %i.glyphicon.glyphicon-list-alt
+          %i.fa.fa-usd
           Mes actual     
           %hr/
         .row
           .col-md-6
             Facturado
-          .col-md-6
+          .col-md-6.feature-font
             $330.000
         %hr/    
         .row
           .col-md-6
             Comisiones
-          .col-md-6
+          .col-md-6.comition
             $33.000 (-10%)
         .row
           .col-md-6
             Total
-          .col-md-6
+          .col-md-6.feature-font
             $297.000
     .panel.panel-default
       .panel-body
         %strong
-          %i.glyphicon.glyphicon-list-alt
+          %i.fa.fa-star
           Promociones activas
           %hr/
         %table.table.table-striped
@@ -79,4 +118,11 @@
             %td $12.000
           %tr
             %td 1 mes
-            %td $30.000          
+            %td $30.000
+    .panel.panel-default
+      .panel-body
+        %strong
+          %i.fa.fa-pie-chart
+          Estadísticas
+          %hr/
+

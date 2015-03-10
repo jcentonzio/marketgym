@@ -4,8 +4,49 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 body{background:#E9EAEA;}
+
+.navbar {
+    margin-bottom: 0px;
+    min-height: 50px;
+    position: relative;
+}
+
+
+#mini_search h3, h1{padding:10px;color:#fff}
+
+
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+ 
+
+.prod-text{font-size:16px}
+.text-red{color:#d86067;font-weight: bold;}
+
+.th {
+    display: inline-block;
+    line-height: 0;
+    transition: all 200ms ease-out 0s;
+    width: 100%;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
 
 .jumbotron {
     background-image: url("back.jpg");
@@ -18,9 +59,33 @@ h3{padding:0 0 10px;margin:0}
 
 hr{margin:10px 0 10px 0;}
 
+.bg-title {
+    background-color: #9597C6;
+    color: #fff;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.lead{color:#fff;}
+
+.cd-headline {
+    color: #fcfcfc;
+    line-height: 1.2;
+    text-align: center;
+    text-shadow: 2px 2px 3px black;
+}
+
+
 .line{border-right:solid 1px #ccc;}
 
-.well {background:#fff}
+.whome {
+    border: 1px solid #e3e3e3;
+    border-radius: 0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    margin-bottom: 20px;
+    min-height: 20px;
+    padding: 0;
+}
 
 .top-header{border: solid 1px #ccc}
 
@@ -66,14 +131,14 @@ hr{margin:10px 0 10px 0;}
 
 
 
-.btn-primary{background-color: #EA7A51;color: white;border:solid 1px #CC6945;}
+.btn-primary{background-color: #D86067;color: white;border:solid 1px #C95A62;}
 
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,
 .btn-primary.active {
   color: #ffffff;
-  background-color: #CC6945;border:solid 1px #BE6140;
+  background-color: #C95A62;border:solid 1px #BA535B;
 }
 
 
