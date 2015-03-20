@@ -1,0 +1,37 @@
+#top-nav.navbar.navbar-inverse.navbar-static-top
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "/dashboard"} GYMplus
+    .navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        %li
+          = link_to "<span class='fa fa-ticket'></span> Accesos".html_safe, "#"
+        %li
+          = link_to "<span class='fa fa-star'></span> Promociones".html_safe, "/dashboard/promotion" 
+        %li
+          = link_to "<span class='fa fa-archive'></span> Contabilidad".html_safe, "#"
+        %li
+          = link_to "<span class='fa fa-pie-chart'></span> Estadísticas".html_safe, "#"     
+      %ul.nav.navbar-nav.navbar-right
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#", :role => "button"}
+            %i.glyphicon.glyphicon-user
+            Cuenta
+            %span.caret
+          %ul#g-account-menu.dropdown-menu{:role => "menu"}
+            %li
+              = link_to "<span class='fa fa-user'></span> Tu cuenta".html_safe, "/customers/edit"
+            %li
+              = link_to "<span class='fa fa-pencil'></span> Datos del establecimiento".html_safe, "/dashboard/company"
+            %li
+              = link_to "<span class='fa fa-camera'></span> Fotos".html_safe, "/dashboard/photos"
+            %li
+              = link_to "<span class='fa fa-clock-o'></span> Horarios".html_safe, schedules_path, remote: true
+            %li
+              = link_to "<span class='fa fa-money'></span> Datos de facturación".html_safe, "/dashboard/billing"
+        %li
+          = link_to "<span class='glyphicon glyphicon-lock'></span> Salir".html_safe, destroy_customer_session_path, method: 'delete'

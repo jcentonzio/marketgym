@@ -1,0 +1,17 @@
+%html
+  %head
+    %title Gym
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    - content_for :head do
+      :javascript
+        $(document).ready(function() {
+          $('input:checkbox').bootstrapSwitch();
+        });
+          %body
+    = render 'layouts/merchant/top_menu_customer'
+    .container
+      = render 'layouts/messages/flash_messages', flash: flash
+      = yield
+      = render "layouts/merchant/modal_schedules"

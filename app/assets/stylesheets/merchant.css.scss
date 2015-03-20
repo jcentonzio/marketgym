@@ -4,6 +4,59 @@
 
 //HEAD
 
+
+
+
 .feature-font{font-size:30px;color:#3BA0D3}
 .feature-font2{font-size:20px;color:#3BA0D3}
 .comition{color:#DF636A}
+
+.well{background:#fff;}
+
+.active {color: #66CC00}
+.danger {color: #D9534F}
+
+#media-dropzone {  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.03);
+    border: 2px dashed #808080;
+    border-radius: 3px;
+    min-height: 360px;
+    padding: 23px;}
+
+.dropzone .dz-default.dz-message{display:none;}
+
+.text-drop{ background-position: 0 0;font-size:20px;text-align: center;margin-top: 120px}
+
+ul li {     
+          list-style:none;        
+      }
+
+
+.alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-alert {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
+
+.alert-notice {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+    margin:10px 0 0 0;
+ }    
+

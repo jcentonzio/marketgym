@@ -1,4 +1,8 @@
-= nested_form_for @directory do |f|
+%br
+
+
+= form_for(@directory, remote: true, html: {role: :form, 'data-model' => 'directory'}) do |f|
+
   - if @directory.errors.any?
     #error_explanation
       %h2= "#{pluralize(@directory.errors.count, "error")} prohibited this directory from being saved:"
@@ -6,88 +10,60 @@
         - @directory.errors.full_messages.each do |msg|
           %li= msg
   
-  .panel.panel-default
-    .panel-body
-      %h4 Información general 
-      %hr
+  .row
+    .col-md-7
       .form-group
-        %p
         = f.label :name
-        = f.text_field :name, :class => 'form-control'        
-        %p
+        = f.text_field :name, :class => 'form-control'
+        %span.help-block
+
+
+  .row
+    .col-md-7
       .form-group
-        %p
-        = f.label :phone
-        = f.text_field :phone, :class => 'form-control'
-        %p
-      
-      .form-group
-        %p
         = f.label :address
         = f.text_field :address, :class => 'form-control'
-        %p
-  
+        %span.help-block
+
+  .row
+    .col-md-7
       .form-group
-        %p
         = f.label :city_id
-        %p  
-        = f.grouped_collection_select :city_id, @zones, :cities, :name, :id, :name, {}, {:class => "multiselect", :id => "city" }
-        %p
+        = f.grouped_collection_select :city_id, Zone.all, :cities, :name, :id, :name, {}, {:class => "multiselect", :id => "city" }
+        %span.help-block
 
 
-  .panel.panel-default
-    .panel-body
-      %h4 Servicios 
-      %hr  
+  .row
+    .col-md-7
       .form-group
-        %p
+        = f.label :phone
+        = f.text_field :phone, :class => 'form-control'
+        %span.help-block
+
+  
+  .row
+    .col-md-7
+      .form-group
         = f.label :servicios
-        %p   
-        = f.grouped_collection_select :sitem_ids, @services, :sitems, :name, :id, :name, {}, {:class => "multiselect", :multiple => "multiple", :id => "example-enableClickableOptGroups" }
+        = f.grouped_collection_select :sitem_ids, Service.all, :sitems, :name, :id, :name, {}, {:class => "multiselect", :multiple => "multiple", :id => "example-enableClickableOptGroups" }
+        %span.help-block
 
-  
-  .form-group
-    %p
-    = f.label :terms
-    = f.text_area :terms, :class => 'form-control'
-    %p
-
-  .form-group
-    %p
-    = f.label :description
-    = f.text_area :description, :class => 'form-control'
-    %p   
-
- 
-  .panel.panel-default
-    .panel-body
-      %h4 Agregar accesos 
-      %hr
+  .row
+    .col-md-12
       .form-group
-        = f.fields_for :accesses do |access_form|
-          .row
-            .col-xs-6.col-md-4
-              = access_form.label :type_access_id
-              = access_form.select :type_access_id, TypeAccess.all.map{ |c| [c.name, c.id] }, { :prompt => "Por favor, seleccionar una opción"}, :class => 'form-control' 
-            .col-xs-6.col-md-4
-              = access_form.label :price
+        = f.label :terms
+        = f.text_area :terms, class: 'form-control wysihtml5'
+        %span.help-block
 
-              .input-group
-                .input-group-addon $
-                = access_form.text_field :price, :class => 'form-control'
-                        
-            .col-xs-6.col-md-4
-              = access_form.link_to_remove "Eliminar"
+  .row
+    .col-md-12
       .form-group
-        = f.link_to_add "Agregar acceso", :accesses         
-  
-          
-  
-  
+        = f.label :description
+        = f.text_area :description, class: 'form-control wysihtml5'
+        %span.help-block                      
 
-      
-  .form-group   
-    = f.submit 'Crear gym', :class => 'btn btn-primary'
-    = link_to "Volver", admin_index_path, class: 'btn btn-primary'
+
   
-  .col-md-6  
+  .actions
+    = f.submit 'Guardar', class: "btn btn-primary"
+    = link_to 'Volver', merchant_path, class: "btn btn-default"

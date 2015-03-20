@@ -1,17 +1,29 @@
-%h1 Listing accesses
-
-%table
-  %tr
-    %th
-    %th
-    %th
-
-  - @accesses.each do |access|
-    %tr
-      %td= link_to 'Show', access
-      %td= link_to 'Edit', edit_access_path(access)
-      %td= link_to 'Destroy', access, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
 %br
+%br
+.well
+  %strong
+    %h4
+      %i.fa.fa-star
+      Promociones
+    %hr
+    %span.pull-left
+      = link_to "<i class='fa fa-plus-square'></i> Nueva promoción".html_safe, new_access_path, remote: true
+   
+  %br
+  %br
+  %table.table.table-striped
+    %th Tipo de acceso
+    %th Precio
+    %th Precio oferta
+    %th Fecha de inicio
+    %th Fecha de termino
+    %th Estado
+    %th 
+    %th 
+    %tbody.access-index
+      = render "/accesses/partials/index"
+  
+  = have_promotion(current_customer.directory.accesses)
+          
+#access-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
 
-= link_to 'New Access', new_access_path

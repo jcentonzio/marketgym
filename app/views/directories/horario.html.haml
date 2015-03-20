@@ -1,0 +1,25 @@
+= nested_form_for(@directory, remote: true, html: {role: :form, 'data-model' => 'directory'}) do |f|
+  
+  = f.fields_for :schedules do |schedule_form|
+
+    .row
+      .col-sm-4
+        = schedule_form.collection_select(:period_ids, Period.all, :id, :name, {}, {:class => "multiselect", :multiple => "multiple" })
+      .col-sm-3
+        = schedule_form.time_select(:star_time, {:combined => true, :default => Time.now.change(:hour => 11, :min => 30), :minute_interval => 15, :time_separator => "", :start_hour => 8, :start_minute => 00, :end_hour => 22, :end_minute => 00}, {class: "form-control"})
+      .col-sm-3 
+        = schedule_form.time_select(:term_time, {:combined => true, :default => Time.now.change(:hour => 11, :min => 30), :minute_interval => 15, :time_separator => "", :start_hour => 8, :start_minute => 00, :end_hour => 22, :end_minute => 00}, {class: "form-control"})
+        
+      .col-sm-1
+        = schedule_form.link_to_remove "eliminar"  
+  
+  .row
+    .col-sm-12
+      = f.link_to_add "Agregar horario", :schedules
+  
+  .actions
+    = f.submit 'Guardar', class: "btn btn-primary"
+
+
+
+

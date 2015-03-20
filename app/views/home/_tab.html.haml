@@ -1,0 +1,14 @@
+%div{:role => "tabpanel"}
+  / Nav tabs
+  %ul.nav.nav-tabs{:role => "tablist"}
+    %li.active{:role => "presentation"}
+      %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#home", :role => "tab"} Descripción
+    %li{:role => "presentation"}
+      %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#profile", :role => "tab"} Condiciones
+    %li{:role => "presentation"}
+      %a{"aria-controls" => "messages", "data-toggle" => "tab", :href => "#messages", :role => "tab"} Servicios
+  / Tab panes
+  .tab-content
+    #home.tab-pane.active{:role => "tabpanel"}= @directory.description.html_safe
+    #profile.tab-pane{:role => "tabpanel"} Condiciones
+    #messages.tab-pane{:role => "tabpanel"} Servicios

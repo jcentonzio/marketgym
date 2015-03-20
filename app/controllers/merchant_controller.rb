@@ -5,10 +5,16 @@ class MerchantController < ApplicationController
 
 	end
 
-	def company
-     @directory = Directory.new
-     3.times { @directory.accesses.build }
-    @services = Service.all
-    @zones = Zone.all
+	def profile_company
+      @directory = current_customer.directory
 	end	
+
+	def edit_profile
+     
+	end		
+
+	def access
+     @access =  Access.new
+	end	
+
 end

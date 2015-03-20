@@ -3,10 +3,15 @@ class HomeController < ApplicationController
   end
 
   def show
+
      if params[:access_id]
         @access = Access.find(params[:access_id])
      end	
   	 @directory = Directory.find(params[:id])
+
+
+
+     @media_contents = @directory.medias.all
      @fits = @directory.sitems.where(service_id: 1)
      @Wells = @directory.sitems.where(service_id: 2)
      @actis = @directory.sitems.where(service_id: 3)

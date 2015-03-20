@@ -13,15 +13,34 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require bootstrap-sprockets
 //= require bootstrap-multiselect
 //= require jquery_nested_form
+//= require bootstrap-datepicker
+//= require bootstrap-switch
+//= require dropzone
+//= require bootstrap-wysihtml5
+//= require underscore
+//= require gmaps/google
+//= require_tree .
+
 
 
 $(function() {
    $("#myModal").modal();
 });
+
+
+
+$(document).ready(function(){
+
+    $('.wysihtml5').each(function(i, elem) {
+      $(elem).wysihtml5();
+    });
+
+  })
+
+
 
 
  $(document).ready(function() {
@@ -31,6 +50,8 @@ $(function() {
             buttonWidth: '100%'
         });
     });
+
+
 
 $(document).ready(function() {
         $('#city').multiselect({

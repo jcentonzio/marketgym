@@ -1,0 +1,47 @@
+%br
+= form_for(@billing, remote: true, html: {role: :form, 'data-model' => 'billing'}) do |f|
+   
+  .row
+    .col-md-7
+      .form-group
+        = f.label :name_company
+        = f.text_field :name_company, :class => 'form-control'
+        %span.help-block
+          
+  .row
+    .col-md-7
+      .form-group
+        = f.label :rut
+        = f.text_field :rut, :class => 'form-control'
+        %span.help-block
+
+  .row
+    .col-md-7
+      .form-group
+        = f.label :gyre
+        = f.text_field :gyre, :class => 'form-control'
+        %span.help-block
+
+  .row
+    .col-md-7
+      .form-group
+        = f.label :address
+        = f.text_field :address, :class => 'form-control'
+        %span.help-block
+  .row
+    .col-md-7
+      .form-group
+        = f.label :city_id
+        = f.grouped_collection_select :city_id, Zone.all, :cities, :name, :id, :name, {}, {:class => "multiselect", :id => "city" }      
+        %span.help-block
+
+  .row
+    .col-md-7
+      .form-group
+        = f.label :phone
+        = f.text_field :phone, :class => 'form-control'
+        %span.help-block
+                             
+  .actions
+    = f.submit 'Guardar', class: "btn btn-primary"
+    = link_to 'Volver', merchant_path, class: "btn btn-default"

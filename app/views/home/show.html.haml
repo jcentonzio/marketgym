@@ -1,9 +1,22 @@
-%h1 
-  = @directory.name
-  .row
-    .col-md-8
-      = image_tag "pgym.jpg"
-    .col-md-4.text-center
+.row
+  .col-md-11
+    %h1 
+      = @directory.name
+    .address
+      = @directory.address + ", " + @directory.city.name + ", " + "Chile"
+      %i.fa.fa-map-marker.fa-lg
+.row
+  .col-sm-7.nopadding
+    .well.directory
+      = render "carousel" 
+    .row
+      .col-sm-12
+        .well.directory
+          = render "tab"      
+  .col-sm-5.nopadding
+    .well.directory
+      .section-title
+        Matrícula gratis en todos los pases
       = form_tag(cart_url, :method => "get") do
         .btn-group-vertical.btn-block{"data-toggle" => "buttons"}
           - @directory.accesses.each do |access|
@@ -11,74 +24,40 @@
               %input#option1{:autocomplete => "off", :name => "id", :value => access.id,  :type => "radio"}                
                 .row
                   .col-md-8.text-left 
-                    %h4
+                    %h5
                       = access.type_access.name
                   .col-md-4.text-left 
-                    %h4
+                    %h5
                       = clp(access.price)
-                  
-        = submit_tag 'COMPRAR', class: "btn btn-extra btn-lg btn-block"        
+        = submit_tag 'COMPRAR', class: "btn btn-extra btn-lg btn-block"
 
+    .row
+      .col-md-12
+        .well.directory
+          .section-title
+            Horarios y ubicación 
+          %table.table.table-striped
+            %tr
+              %td Lunes
+              %td.text-right 07:00-23:00 h
+            %tr
+              %td Martes
+              %td.text-right 07:00-23:00 h
+            %tr
+              %td Miercoles
+              %td.text-right 07:00-23:00 h                  
+            %tr
+              %td Jueves
+              %td.text-right 07:00-23:00 h
+            %tr
+              %td Viernes
+              %td.text-right 07:00-23:00 h
+          #map
+            = render "map"
+             
 
-.row
-  .col-md-8
-    .well 
-      .row
-        .col-md-6
-          %span.section-title Descripción 
-          = @directory.description.html_safe  
-        .col-md-6
-          %span.section-title Condiciones
-          = @directory.terms
-      .row
-        .col-md-12
-          %span.section-title Servicios del gimnasio
-          .list-group
-            %a.list-group-item.disabled{:href => "#"}
-              Fitness & Gym
-              - @fits.each do |sitem|  
-                %a.list-group-item{:href => "#"}
-                  %span.badge
-                    %span.glyphicon.glyphicon-ok
-                  = sitem.name
-          .list-group
-            %a.list-group-item.disabled{:href => "#"}
-              Wellness & Spa
-              - @Wells.each do |sitem|  
-                %a.list-group-item{:href => "#"}
-                  %span.badge
-                    %span.glyphicon.glyphicon-ok
-                  = sitem.name                  
-          .list-group
-            %a.list-group-item.disabled{:href => "#"}
-              Actividades dirigidas
-              - @actis.each do |sitem|  
-                %a.list-group-item{:href => "#"}
-                  %span.badge
-                    %span.glyphicon.glyphicon-ok
-                  = sitem.name
-          .list-group
-            %a.list-group-item.disabled{:href => "#"}
-              Masajes & Belleza
-              - @spas.each do |sitem|  
-                %a.list-group-item{:href => "#"}
-                  %span.badge
-                    %span.glyphicon.glyphicon-ok
-                  = sitem.name
-          .list-group
-            %a.list-group-item.disabled{:href => "#"}
-              Servicios
-              - @servs.each do |sitem|  
-                %a.list-group-item{:href => "#"}
-                  %span.badge
-                    %span.glyphicon.glyphicon-ok
-                  = sitem.name                                 
-
-         
-  .col-md-4
-    .well
-      %span.section-title Mapa
-      %span.section-title Otros gimnasios
+    
+                            
 
 - if @access 
   #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
@@ -102,15 +81,3 @@
           = image_tag ("transbank.jpg")
         .modal-footer
           %button.btn.btn-extra.btn-lg{:type => "button"} REALIZAR PAGO  
-
-
-
-
-
-
-
-  
-
-
-
- 

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  star_time: 2015-03-19 13:31:51
+  term_time: 2015-03-19 13:31:51
+  directory_id: 
+
+two:
+  star_time: 2015-03-19 13:31:51
+  term_time: 2015-03-19 13:31:51
+  directory_id: 

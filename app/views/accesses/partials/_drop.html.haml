@@ -1,0 +1,19 @@
+.modal-dialog
+  .modal-content
+    .modal-header
+      %h3 Eliminar acceso
+    .modal-body
+      %ul.errors
+        ¿Seguro que desea eliminar el acceso de
+        %b 
+          = @access.type_access.name
+          ?
+    .modal-footer
+      = link_to "Eliminar", access_path(@access), method: :delete, remote: true, class: "btn btn-danger"
+      = link_to "Cancelar", "#", class: "btn btn-default", data: { dismiss: "modal" }
+
+
+
+
+
+

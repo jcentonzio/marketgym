@@ -1,0 +1,25 @@
+<br>
+<div class="well">
+
+<h4>Imagenes del establecimiento</h4>
+
+<%= form_tag '/media_contents', method: :post, class: "dropzone", id: "media-dropzone" do %>
+  <div class="fallback">
+    <%= file_field_tag "media", multiple: true%>
+  </div>
+  <div class="text-drop">Arrastra las imagenes aquí para subir</div>
+
+<% end %>
+
+<br>
+<h4>Imagenes</h4>
+<ul class="row">
+
+<% @media_contents.each do |media| %>
+<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4"><%= image_tag media.file_name.url, class: "img-thumbnail" %></li> 
+<% end %>
+
+</ul>
+
+</div>
+

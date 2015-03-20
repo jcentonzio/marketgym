@@ -1,0 +1,41 @@
+es-CL:
+  promotion: "Promociones"
+  data_company: "Configuración del establecimiento"
+  data_billing: "Datos de facturación"
+  activerecord:
+    models:
+      customer:
+      directory:
+      access:
+      billing:
+    attributes:
+      customer:
+        name: "Nombre"
+        last_name: "Apellido"
+        email: "Email"
+        password: "Contraseña"
+        password_confirmation: "Confirmar contraseña"
+        current_password: "Contraseña actual"
+      directory:
+        name: "Nombre del gimnasio"
+        address: "Dirección"
+        city_id: "Seleccione ciudad o comuna"
+        phone: "Teléfono"
+        servicios: "Seleccione los servicios que ofrece el gimnasio"
+        terms: "Condición de la oferta"
+        description: "Descripción de la oferta"
+      access:
+        type_access_id: "Tipo de acceso"  
+        price: "Precio"
+        offer_price: Precio oferta
+        star_date: "Fecha de inicio"
+        end_date: "Fecha termino"
+        state: "Estado"
+      billing:
+        name_company: "Razón social"
+        rut: "Rut"
+        gyre: Giro
+        address: "Dirección"
+        city_id: "Ciudad o comuna"
+        phone: "Teléfono"
+

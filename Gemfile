@@ -20,7 +20,26 @@ gem 'bootstrap-multiselect-rails'
 
 gem 'nested_form'
 
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
+                              :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+
 gem 'devise'
+gem 'devise-i18n'
+
+gem "combined_time_select", "~> 1.0.1"
+
+gem 'rails-i18n', '~> 4.0.0' 
+
+gem 'bootstrap-wysihtml5-rails'
+
+gem 'dropzonejs-rails'
+
+gem 'carrierwave'
+
+gem 'geocoder'
+gem 'gmaps4rails'
+
+gem "bootstrap-switch-rails"
 
 gem 'mysql2'
 

@@ -1,0 +1,63 @@
+%br
+%br
+.well
+  %strong
+    %h4
+      %i.fa.fa-pencil-square
+      Editar usuario
+  %hr     
+
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+
+    = devise_error_messages!
+
+    .row
+      .col-md-12
+        .form-group
+          = f.label :name
+          = f.text_field :name, :class => 'form-control'
+          %span.help-block
+
+    .row
+      .col-md-12
+        .form-group
+          = f.label :last_name
+          = f.text_field :last_name, :class => 'form-control'
+          %span.help-block
+
+    .row
+      .col-md-12
+        .form-group
+          = f.label :email
+          = f.email_field :email, :class => 'form-control'
+          %span.help-block 
+
+    .row
+      .col-md-12
+        .form-group
+          = f.label :password
+          = f.password_field :password, :class => 'form-control'
+          %span.help-block
+            Dejar en blanco si no desea cambiarlo 
+    .row
+      .col-md-12
+        .form-group
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation, :class => 'form-control'
+          %span.help-block
+
+    .row
+      .col-md-12
+        .form-group
+          = f.label :current_password
+          = f.password_field :current_password, :class => 'form-control'
+          %span.help-block
+            Necesitamos su contraseña actual para confirmar los cambios      
+
+
+    .actions
+      = f.submit 'Guardar', class: "btn btn-primary"
+      = link_to 'Volver', merchant_path, class: "btn btn-default"            
+
+  
+

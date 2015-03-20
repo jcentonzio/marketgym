@@ -14,4 +14,8 @@
  *= require_tree .
  *= require_self
  *= require bootstrap-multiselect
+ *= require bootstrap-datepicker3
+ *= require bootstrap3-switch
+ *= require dropzone/dropzone
+ *= require bootstrap-wysihtml5
  */

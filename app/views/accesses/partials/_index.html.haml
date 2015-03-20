@@ -1,0 +1,23 @@
+- current_customer.directory.accesses.each do |access|
+  %tr
+    %td
+      = access.type_access.name
+    %td
+      = clp(access.price)
+    %td
+      = clp(access.offer_price)  
+    %td 
+      = access.star_date 
+    %td  
+      = access.star_date
+    %td  
+      = show_state(access.state)
+    %td  
+      = link_to "Editar", edit_access_path(access), remote: true, class: "btn btn-info btn-xs"
+    %td  
+      = link_to "Borrar", access_delete_path(access), remote: true, class: "btn btn-danger btn-xs"
+
+
+
+
+

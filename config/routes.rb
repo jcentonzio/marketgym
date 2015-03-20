@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   
+  get 'billings/index'
+
   get 'carts/show'
 
   get 'admin/index'
@@ -9,10 +11,19 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  resources :accesses
+  resources :media_contents, only: [:index, :create]
+
+  resources :accesses do
+    get "delete"
+  end
+
+
   resources :admin
+  
   resources :directories
+  
   resources :orders
+  resources :billings
 
   #devise_for :customers, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   
@@ -23,7 +34,19 @@ Rails.application.routes.draw do
 
 
   #Dashboard
-  get 'profile_company' => 'merchant#company'
+  get 'dashboard' => 'merchant#index', as: :merchant
+  get 'dashboard/company' => 'merchant#profile_company', as: :company
+  get 'dashboard/promotion' => 'accesses#index', as: :promotion
+  get 'dashboard/billing' => 'billings#new'
+  get 'dashboard/photos' => 'media_contents#index'
+  get 'dashboard/profile' => 'merchant#edit_profile'
+  get 'dashboard/schedules' => 'directories#schedules', as: :schedules
+  get 'dashboard/horario' => 'directories#horario'
+
+
+
+
+  
  
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -35,7 +58,7 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
    
-  get 'dashboard' => 'merchant#index', as: :merchant
+  
 
   get 'show/:id(/purchase/:access_id)' => 'home#show', as: :product  
 
